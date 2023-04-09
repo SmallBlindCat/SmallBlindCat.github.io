@@ -1,1 +1,1 @@
-# SmallBlindCat.github.io
+my first project html "meditation"
