@@ -1,0 +1,114 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.app{
+height: 100vh;     /* full screen */   
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+}
+
+.time-select, 
+.sound-picker,
+.player-contayner{
+height: 80%;  /* высота 80% от страницы */ 
+flex: 1;  /* каждому элементу выделено по одной части, одинаково */ 
+display: flex;  /* свойство определяет, как элемент показан в документе,
+flex- способность гибкого элемента растягиваться или сжиматься для заполнения собой доступного свободного пространства. */ 
+flex-direction: column;  /* в колонну */ 
+justify-content: space-evenly;  /* выравнивает элементы контейнера: элементы будут иметь одинаковое пространство вокруг себя */ 
+align-items: center;  /* выравнивание элементов по центру контейнера */ 
+}
+
+.player-contayner{
+	position: relative;
+	}
+
+.player-contayner svg{
+	position: absolute;
+	  /* Вертикальное и горизонтальное выравнивание элемента  */ 
+	height: 50%;
+	top: 50%;
+	left: 50%;
+	 /* возвращение элемента назад на его место, 
+	 rotate(-90deg) повернуть начало движения на 90° */ 
+	transform: translate(-50%,-50%) rotate(-90deg);
+
+	pointer-events: none;  /* элемент не является объектом события мыши, 
+	нажатие мышью на круг ничего не даст */ 
+	}
+	
+ /* 
+.time-select{
+	background: lightblue;
+}
+.sound-picker{
+	background: lightgreen;
+}
+.player-contayner{
+	background: lightcoral;
+} 
+ */ 
+.time-display{
+	 /* помещает кнопку PLAY в середину круга, потму что - display: flex; */ 
+	position: absolute;
+	 /* помещает таймер вниз на высоту 10% */ 
+	bottom: 10%;
+	color: white;
+	font-size: 50px;
+}
+
+ video{
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	 /* чтобы элементы появились, z-index это слой элемента */  
+	z-index: -10;
+	 /* display: none; */  
+}
+
+.time-select button,
+.sound-picker button{
+	color: white;
+	width: 30%;
+	height: 10%;
+	background: none;
+	border: 2px solid white;
+	 /* теперь выглядит кликабельным */  
+	cursor: pointer;
+	border-radius: 15px;
+	font-size: 20px;
+	 /* мягкий переход */  
+	transition: all 0.5s ease;
+}
+
+ /* при наведении */  
+.time-select button:hover{
+color: black;
+background: white;
+}
+
+.sound-picker button{
+	height: 120px;
+	width: 120px;
+	 /* убираем рамку, делаем круглым, добавляем внутренний отступ */  
+	border: none;
+	border-radius: 50%;
+	padding: 30px;
+}
+
+.sound-picker button img{
+	/* вставляет изображение  точно посередине */  
+	height: 100%;
+}
+
+.sound-picker button:nth-child(1){
+	background: rgba(60, 85, 167, 0.858);
+}
+.sound-picker button:nth-child(2){
+	background: rgb(215, 112, 42);
+}
+
